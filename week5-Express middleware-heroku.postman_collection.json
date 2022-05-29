@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "55342f89-15bc-4829-977a-949be7e2a70b",
+		"name": "week5-Express middleware-heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6469607"
+	},
+	"item": [
+		{
+			"name": "取得所有貼文",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://damp-river-16016.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"damp-river-16016",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增貼文",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": \"6293ac2e8907b4df6304c20c\",\r\n    \"content\": \"肚子餓了\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://damp-river-16016.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"damp-river-16016",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改貼文",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\":\"肚子餓了1122\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://damp-river-16016.herokuapp.com/posts/6293b10c063a0f9f5d98e57e",
+					"protocol": "https",
+					"host": [
+						"damp-river-16016",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts",
+						"6293b10c063a0f9f5d98e57e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除單筆貼文",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://damp-river-16016.herokuapp.com/posts/6293b10c063a0f9f5d98e57e",
+					"protocol": "https",
+					"host": [
+						"damp-river-16016",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts",
+						"6293b10c063a0f9f5d98e57e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除所有貼文",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://damp-river-16016.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"damp-river-16016",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
