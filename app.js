@@ -68,7 +68,7 @@ app.use((err, req, res, next) => {
     }
 
     //env for production
-    if(err.name === 'validationError') {
+    if(err.name === 'ValidationError') {
         err.message = '欄位填寫不正確，請重新輸入';
         err.isOperational = true;
         return resErrorProd(err, res);
