@@ -59,7 +59,8 @@ const postController = {
         }    
     },
      async patchPost(req, res, next) {
-        const updatePost = req.body;
+        // const updatePost = req.body;
+        const {content, image} = req.body;
         const updatePostId = req.params.id;  
 
         //不符合 ObjectId 格式
@@ -67,8 +68,15 @@ const postController = {
             return appError(400, `修改貼文失敗，要修改的貼文ID格式不符`, next);
         }
 
-        if( !updatePost.content) {
-            return appError(400, '內容須填寫', next);
+        if( !content || (typeof content === 'string' && !content.trim()) ) {
+            return appError(400, '貼文內容須填寫', next);
+        } else if (typeof content !== 'string') {
+            return appError(400, '貼文內容格式錯誤', next);
+        }
+
+        const updatePost = {content: content.trim()};
+        if( image ) {
+            updatePost.image = image;
         }
 
         const updatePostRes = await Post.findByIdAndUpdate(updatePostId, updatePost);
