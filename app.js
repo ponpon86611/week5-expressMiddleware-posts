@@ -71,6 +71,14 @@ app.use((err, req, res, next) => {
     if(err.name === 'ValidationError') {
         err.message = '欄位填寫不正確，請重新輸入';
         err.isOperational = true;
+        err.statusCode = 400; // 因這邊為自己能捕捉到確切的錯誤，故應該回傳狀態碼400而非500
+        return resErrorProd(err, res);
+    }
+
+    //env for production if json format error
+    if(err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+        err.message = '資料格式有誤:' + err.message;
+        err.isOperational = true;
         return resErrorProd(err, res);
     }
     resErrorProd(err, res);
