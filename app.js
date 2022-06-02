@@ -46,7 +46,7 @@ const resErrorProd = (err, res) => {
         });
     } else {
         // log 紀錄
-        console.err('重大錯誤:', err);
+        console.error('重大錯誤:', err);
         res.status(500).json({
             status: "error",
             message: '系統錯誤，請洽系統管理員'
