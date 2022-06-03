@@ -37,6 +37,7 @@ const postController = {
         resHandler.successHandler(res, '貼文新增成功', 200);
     },
     async deletePostAll(req, res, next) {
+        if(req.url === '/posts/') return appError(404, `無此頁面...`, next);
         await Post.deleteMany({});
         // const posts = await Post.find();
         resHandler.successHandler(res, [], 200); 
